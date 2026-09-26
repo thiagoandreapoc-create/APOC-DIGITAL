@@ -1,12 +1,21 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>APOC-DIGITAL</title>
 
+
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -14,10 +23,17 @@
             font-family: Arial, sans-serif;
         }
 
+
         body {
             background: #f4f6f8;
             color: #1f2937;
+            min-height: 100vh;
         }
+
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
 
         header {
             background: #0b1f33;
@@ -25,14 +41,23 @@
             padding: 25px 40px;
         }
 
+
         header h1 {
             font-size: 30px;
+            letter-spacing: 0.5px;
         }
+
 
         header p {
             margin-top: 6px;
             color: #b9c7d6;
+            font-size: 15px;
         }
+
+
+        /* =========================
+           CONTEÚDO PRINCIPAL
+        ========================= */
 
         main {
             max-width: 1100px;
@@ -40,372 +65,435 @@
             padding: 0 20px;
         }
 
-        .back {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #2563eb;
-            cursor: pointer;
-            font-weight: bold;
-        }
 
         .welcome {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
+
         .welcome h2 {
-            font-size: 25px;
+            font-size: 27px;
             margin-bottom: 8px;
         }
+
 
         .welcome p {
             color: #64748b;
+            line-height: 1.5;
         }
 
-        .search-box {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
-        }
 
-        .search-box input {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 16px;
-            margin-bottom: 12px;
-        }
+        /* =========================
+           CARDS
+        ========================= */
 
-        .search-box button {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            background: #2563eb;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .search-box button:hover {
-            background: #1d4ed8;
-        }
-
-        .procedimentos {
+        .menu {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 18px;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+
+            gap: 20px;
         }
 
-        .procedimento {
+
+        .card {
             background: white;
-            padding: 22px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            cursor: pointer;
+            padding: 25px;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.08);
+
             border: 1px solid #e5e7eb;
-            transition: 0.2s;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s;
+
+            text-decoration: none;
+
+            color: inherit;
         }
 
-        .procedimento:hover {
-            transform: translateY(-3px);
+
+        .card:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 8px 22px rgba(0, 0, 0, 0.12);
         }
 
-        .procedimento .icone {
-            font-size: 32px;
-            margin-bottom: 12px;
+
+        .icon {
+            font-size: 36px;
+            margin-bottom: 15px;
         }
 
-        .procedimento h3 {
+
+        .card h3 {
             margin-bottom: 8px;
+            font-size: 19px;
         }
 
-        .procedimento p {
+
+        .card p {
             color: #64748b;
             font-size: 14px;
             line-height: 1.5;
         }
 
-        .resultado {
-            display: none;
+
+        /* =========================
+           ÁREA DE STATUS
+        ========================= */
+
+        .status {
+            margin-top: 30px;
+
             background: white;
-            padding: 25px;
+
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            margin-top: 25px;
+
+            padding: 20px;
+
+            border: 1px solid #e5e7eb;
+
+            box-shadow:
+                0 4px 15px rgba(0, 0, 0, 0.05);
         }
 
-        .resultado h2 {
-            margin-bottom: 15px;
+
+        .status h3 {
+            margin-bottom: 8px;
         }
 
-        .passos {
-            margin-top: 20px;
-            padding-left: 20px;
+
+        .status p {
+            color: #64748b;
+            font-size: 14px;
         }
 
-        .passos li {
-            margin-bottom: 12px;
-            line-height: 1.5;
+
+        .status-indicator {
+            display: inline-block;
+
+            width: 9px;
+            height: 9px;
+
+            background: #22c55e;
+
+            border-radius: 50%;
+
+            margin-right: 7px;
         }
+
+
+        /* =========================
+           RODAPÉ
+        ========================= */
 
         footer {
             text-align: center;
+
             margin-top: 50px;
-            padding: 20px;
+
+            padding: 25px;
+
             color: #94a3b8;
+
             font-size: 13px;
         }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 20px;
+            }
+
+
+            header h1 {
+                font-size: 25px;
+            }
+
+
+            main {
+                margin-top: 25px;
+            }
+
+
+            .welcome h2 {
+                font-size: 23px;
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
-<header>
-    <h1>APOC-DIGITAL</h1>
-    <p>Sistema de Apoio às Operações Aeroportuárias</p>
-</header>
 
-<main>
+    <!-- =========================
+         CABEÇALHO
+    ========================= -->
 
-    <div class="back" onclick="voltar()">
-        ← Voltar
-    </div>
+    <header>
 
-    <section class="welcome">
-        <h2>📋 Procedimentos</h2>
-        <p>Consulte rapidamente procedimentos e orientações operacionais.</p>
-    </section>
+        <h1>
+            APOC-DIGITAL
+        </h1>
 
-    <section class="search-box">
+        <p>
+            Sistema de Apoio às Operações Aeroportuárias
+        </p>
 
-        <input
-            type="text"
-            id="busca"
-            placeholder="Digite o procedimento que deseja encontrar..."
-            onkeyup="filtrarProcedimentos()"
-        >
+    </header>
 
-    </section>
 
-    <section class="procedimentos" id="listaProcedimentos">
 
-        <div class="procedimento"
-             data-nome="voo alternado"
-             onclick="abrirProcedimento('alternado')">
+    <!-- =========================
+         CONTEÚDO
+    ========================= -->
 
-            <div class="icone">🔄</div>
+    <main>
 
-            <h3>Voo Alternado</h3>
+
+        <section class="welcome">
+
+            <h2>
+                Painel de Operações
+            </h2>
 
             <p>
-                Consulta demonstrativa sobre o procedimento de voo alternado.
+                Acesse rapidamente as ferramentas e
+                informações disponíveis no sistema.
             </p>
 
-        </div>
+        </section>
 
-        <div class="procedimento"
-             data-nome="alteração de posição"
-             onclick="abrirProcedimento('posicao')">
 
-            <div class="icone">🅿️</div>
 
-            <h3>Alteração de Posição</h3>
+        <!-- =========================
+             MENU PRINCIPAL
+        ========================= -->
+
+        <section class="menu">
+
+
+            <!-- AERONAVES -->
+
+            <div
+                class="card"
+                onclick="abrirAeronaves()"
+            >
+
+                <div class="icon">
+                    ✈️
+                </div>
+
+                <h3>
+                    Aeronaves
+                </h3>
+
+                <p>
+                    Consulte características,
+                    dimensões e informações
+                    das aeronaves.
+                </p>
+
+            </div>
+
+
+
+            <!-- POSIÇÕES -->
+
+            <div
+                class="card"
+                onclick="abrirPosicoes()"
+            >
+
+                <div class="icon">
+                    🅿️
+                </div>
+
+                <h3>
+                    Posições
+                </h3>
+
+                <p>
+                    Consulte posições,
+                    características, restrições
+                    e compatibilidade.
+                </p>
+
+            </div>
+
+
+
+            <!-- PROCEDIMENTOS -->
+
+            <div
+                class="card"
+                onclick="abrirProcedimentos()"
+            >
+
+                <div class="icon">
+                    📋
+                </div>
+
+                <h3>
+                    Procedimentos
+                </h3>
+
+                <p>
+                    Encontre rapidamente
+                    procedimentos e orientações
+                    operacionais.
+                </p>
+
+            </div>
+
+
+
+            <!-- CONSULTA RÁPIDA -->
+
+            <div
+                class="card"
+                onclick="abrirConsulta()"
+            >
+
+                <div class="icon">
+                    🔎
+                </div>
+
+                <h3>
+                    Consulta Rápida
+                </h3>
+
+                <p>
+                    Pesquise rapidamente uma
+                    informação necessária
+                    para a operação.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             STATUS DO SISTEMA
+        ========================= -->
+
+        <section class="status">
+
+            <h3>
+                <span class="status-indicator"></span>
+                Sistema disponível
+            </h3>
 
             <p>
-                Consulta demonstrativa sobre alteração de posição.
+                APOC-DIGITAL • Versão de protótipo
             </p>
 
-        </div>
+        </section>
 
-        <div class="procedimento"
-             data-nome="chegada"
-             onclick="abrirProcedimento('chegada')">
 
-            <div class="icone">🛬</div>
+    </main>
 
-            <h3>Operação de Chegada</h3>
 
-            <p>
-                Orientações demonstrativas para operação de chegada.
-            </p>
 
-        </div>
+    <!-- =========================
+         RODAPÉ
+    ========================= -->
 
-        <div class="procedimento"
-             data-nome="partida"
-             onclick="abrirProcedimento('partida')">
+    <footer>
 
-            <div class="icone">🛫</div>
+        APOC-DIGITAL • Protótipo
 
-            <h3>Operação de Partida</h3>
+    </footer>
 
-            <p>
-                Orientações demonstrativas para operação de partida.
-            </p>
 
-        </div>
 
-        <div class="procedimento"
-             data-nome="comunicação"
-             onclick="abrirProcedimento('comunicacao')">
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
-            <div class="icone">📡</div>
+    <script>
 
-            <h3>Comunicação Operacional</h3>
 
-            <p>
-                Consulta demonstrativa sobre comunicação operacional.
-            </p>
+        /*
+         * ==========================================
+         * NAVEGAÇÃO DOS MÓDULOS
+         * ==========================================
+         */
 
-        </div>
 
-    </section>
+        function abrirPosicoes() {
 
-    <section class="resultado" id="resultado">
+            window.location.href =
+                "posicoes.html";
 
-        <h2 id="tituloResultado"></h2>
-
-        <p id="descricaoResultado"></p>
-
-        <ol class="passos" id="passosResultado"></ol>
-
-    </section>
-
-</main>
-
-<footer>
-    APOC-DIGITAL • Protótipo
-</footer>
-
-<script>
-
-const procedimentos = {
-
-    alternado: {
-        titulo: "Voo Alternado",
-        descricao: "Exemplo de estrutura para consulta rápida de procedimento.",
-        passos: [
-            "Confirmar a necessidade de operação alternada.",
-            "Consultar as informações operacionais disponíveis.",
-            "Registrar as informações necessárias no sistema.",
-            "Comunicar os envolvidos conforme procedimento oficial.",
-            "Acompanhar a evolução da operação."
-        ]
-    },
-
-    posicao: {
-        titulo: "Alteração de Posição",
-        descricao: "Exemplo de estrutura para consulta de alteração de posição.",
-        passos: [
-            "Identificar a necessidade de alteração.",
-            "Verificar a disponibilidade da nova posição.",
-            "Confirmar as restrições aplicáveis.",
-            "Comunicar os setores envolvidos.",
-            "Atualizar o sistema operacional."
-        ]
-    },
-
-    chegada: {
-        titulo: "Operação de Chegada",
-        descricao: "Exemplo de estrutura para consulta da operação de chegada.",
-        passos: [
-            "Acompanhar a previsão de chegada.",
-            "Confirmar a posição prevista.",
-            "Verificar informações operacionais necessárias.",
-            "Comunicar os envolvidos.",
-            "Acompanhar a chegada da aeronave."
-        ]
-    },
-
-    partida: {
-        titulo: "Operação de Partida",
-        descricao: "Exemplo de estrutura para consulta da operação de partida.",
-        passos: [
-            "Confirmar as informações do voo.",
-            "Verificar a posição e condições operacionais.",
-            "Acompanhar a preparação para partida.",
-            "Comunicar os setores envolvidos.",
-            "Acompanhar a evolução da operação."
-        ]
-    },
-
-    comunicacao: {
-        titulo: "Comunicação Operacional",
-        descricao: "Exemplo de estrutura para organização das comunicações.",
-        passos: [
-            "Identificar a informação necessária.",
-            "Selecionar o canal de comunicação adequado.",
-            "Transmitir a informação de forma objetiva.",
-            "Confirmar o recebimento quando necessário.",
-            "Registrar a informação quando aplicável."
-        ]
-    }
-
-};
-
-function abrirProcedimento(tipo) {
-
-    const procedimento = procedimentos[tipo];
-
-    document.getElementById("tituloResultado").textContent =
-        procedimento.titulo;
-
-    document.getElementById("descricaoResultado").textContent =
-        procedimento.descricao;
-
-    const lista = document.getElementById("passosResultado");
-
-    lista.innerHTML = "";
-
-    procedimento.passos.forEach(function(passo) {
-
-        const item = document.createElement("li");
-
-        item.textContent = passo;
-
-        lista.appendChild(item);
-
-    });
-
-    document.getElementById("resultado").style.display = "block";
-
-    window.scrollTo({
-        top: document.getElementById("resultado").offsetTop - 20,
-        behavior: "smooth"
-    });
-}
-
-function filtrarProcedimentos() {
-
-    const busca = document
-        .getElementById("busca")
-        .value
-        .toLowerCase();
-
-    const cards = document.querySelectorAll(".procedimento");
-
-    cards.forEach(function(card) {
-
-        const nome = card.dataset.nome;
-
-        if (nome.includes(busca)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
         }
 
-    });
-}
 
-function voltar() {
-    window.location.href = "index.html";
-}
+        function abrirAeronaves() {
 
-</script>
+            /*
+             * Página de aeronaves será criada
+             * na próxima etapa.
+             */
+
+            alert(
+                "Módulo de Aeronaves em desenvolvimento."
+            );
+
+        }
+
+
+        function abrirProcedimentos() {
+
+            /*
+             * Página de procedimentos será separada
+             * em uma próxima etapa.
+             */
+
+            alert(
+                "Módulo de Procedimentos em desenvolvimento."
+            );
+
+        }
+
+
+        function abrirConsulta() {
+
+            /*
+             * A consulta rápida será transformada
+             * em um módulo próprio.
+             */
+
+            alert(
+                "Módulo de Consulta Rápida em desenvolvimento."
+            );
+
+        }
+
+
+    </script>
+
 
 </body>
+
 </html>
+```
