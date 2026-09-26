@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>APOC-DIGITAL - Posições</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: #0b1f33;
+            color: white;
+            padding: 25px 40px;
+        }
+
+        header h1 {
+            font-size: 30px;
+        }
+
+        header p {
+            margin-top: 6px;
+            color: #b9c7d6;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-bottom: 25px;
+            color: #2563eb;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .titulo {
+            margin-bottom: 25px;
+        }
+
+        .titulo h2 {
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .titulo p {
+            color: #64748b;
+        }
+
+        .busca {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+
+        .busca input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .posicoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .resultado {
+            display: none;
+            margin-top: 30px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .resultado h2 {
+            margin-bottom: 20px;
+        }
+
+        .informacoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .info {
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .info strong {
+            display: block;
+            margin-bottom: 7px;
+            color: #475569;
+        }
+
+        .aviso {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>APOC-DIGITAL</h1>
+
+    <p>
+        Sistema de Apoio às Operações Aeroportuárias
+    </p>
+
+</header>
+
+<main>
+
+    <div class="back" onclick="voltar()">
+        ← Voltar
+    </div>
+
+    <section class="titulo">
+
+        <h2>🅿️ Consulta de Posições</h2>
+
+        <p>
+            Consulte características e informações das posições.
+        </p>
+
+    </section>
+
+    <section class="busca">
+
+        <input
+            type="text"
+            id="pesquisa"
+            placeholder="Digite a posição..."
+            onkeyup="filtrar()"
+        >
+
+    </section>
+
+    <section class="posicoes" id="lista">
+
+        <div
+            class="card"
+            data-nome="posição 01"
+            onclick="abrir('P01')">
+
+            <h3>🅿️ Posição 01</h3>
+
+            <p>
+                Consulte as características desta posição.
+            </p>
+
+        </div>
+
+
+        <div
+            class="card"
+            data-nome="posição 02"
+            onclick="abrir('P02')">
+
+            <h3>🅿️ Posição 02</h3>
+
+            <p>
+                Consulte as características desta posição.
+            </p>
+
+        </div>
+
+
+        <div
+            class="card"
+            data-nome="posição 03"
+            onclick="abrir('P03')">
+
+            <h3>🅿️ Posição 03</h3>
+
+            <p>
+                Consulte as características desta posição.
+            </p>
+
+        </div>
+
+
+        <div
+            class="card"
+            data-nome="posição 04"
+            onclick="abrir('P04')">
+
+            <h3>🅿️ Posição 04</h3>
+
+            <p>
+                Consulte as características desta posição.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section
+        class="resultado"
+        id="resultado">
+
+        <h2 id="nome"></h2>
+
+        <div class="informacoes">
+
+            <div class="info">
+
+                <strong>Limite de envergadura</strong>
+
+                <span id="envergadura"></span>
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>Tipo de posição</strong>
+
+                <span id="tipo"></span>
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>Aeronaves compatíveis</strong>
+
+                <span id="aeronaves"></span>
+
+            </div>
+
+
+            <div class="info">
+
+                <strong>Restrição</strong>
+
+                <span id="restricao"></span>
+
+            </div>
+
+        </div>
+
+
+        <div class="aviso">
+
+            ⚠️ <strong>Protótipo:</strong>
+
+            As informações apresentadas nesta versão são
+            fictícias e servem apenas para demonstrar
+            o funcionamento do sistema.
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    APOC-DIGITAL • Protótipo
+
+</footer>
+
+
+<script>
+
+const posicoes = {
+
+    P01: {
+
+        nome: "Posição 01",
+
+        envergadura: "Exemplo: até 36 m",
+
+        tipo: "Ponte de embarque",
+
+        aeronaves: "Exemplo: A320 / B737",
+
+        restricao: "Informação demonstrativa"
+
+    },
+
+    P02: {
+
+        nome: "Posição 02",
+
+        envergadura: "Exemplo: até 36 m",
+
+        tipo: "Ponte de embarque",
+
+        aeronaves: "Exemplo: A320 / B737",
+
+        restricao: "Informação demonstrativa"
+
+    },
+
+    P03: {
+
+        nome: "Posição 03",
+
+        envergadura: "Exemplo: até 40 m",
+
+        tipo: "Posição remota",
+
+        aeronaves: "Exemplo: A320 / B737",
+
+        restricao: "Informação demonstrativa"
+
+    },
+
+    P04: {
+
+        nome: "Posição 04",
+
+        envergadura: "Exemplo: até 40 m",
+
+        tipo: "Posição remota",
+
+        aeronaves: "Exemplo: A320 / B737",
+
+        restricao: "Informação demonstrativa"
+
+    }
+
+};
+
+
+function abrir(codigo) {
+
+    const p = posicoes[codigo];
+
+    document.getElementById("nome").textContent =
+        p.nome;
+
+    document.getElementById("envergadura").textContent =
+        p.envergadura;
+
+    document.getElementById("tipo").textContent =
+        p.tipo;
+
+    document.getElementById("aeronaves").textContent =
+        p.aeronaves;
+
+    document.getElementById("restricao").textContent =
+        p.restricao;
+
+    document.getElementById("resultado").style.display =
+        "block";
+
+    window.scrollTo({
+
+        top:
+            document.getElementById("resultado").offsetTop - 20,
+
+        behavior: "smooth"
+
+    });
+
+}
+
+
+function filtrar() {
+
+    const busca =
+        document
+        .getElementById("pesquisa")
+        .value
+        .toLowerCase();
+
+    const cards =
+        document.querySelectorAll(".card");
+
+    cards.forEach(function(card) {
+
+        const nome =
+            card.dataset.nome;
+
+        if (nome.includes(busca)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+}
+
+
+function voltar() {
+
+    window.location.href =
+        "index.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
