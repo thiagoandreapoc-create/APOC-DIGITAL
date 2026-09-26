@@ -35,13 +35,21 @@
         }
 
         main {
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
+        .back {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2563eb;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
         .welcome {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .welcome h2 {
@@ -53,40 +61,76 @@
             color: #64748b;
         }
 
-        .menu {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+        .search-box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
         }
 
-        .card {
+        .search-box input {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .search-box button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            background: #2563eb;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background: #1d4ed8;
+        }
+
+        .result {
             background: white;
             border-radius: 12px;
             padding: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            cursor: pointer;
-            transition: 0.2s;
-            border: 1px solid #e5e7eb;
+            display: none;
         }
 
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        .result h2 {
+            margin-bottom: 20px;
         }
 
-        .icon {
-            font-size: 35px;
-            margin-bottom: 15px;
+        .info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
 
-        .card h3 {
-            margin-bottom: 8px;
+        .info-card {
+            background: #f8fafc;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
         }
 
-        .card p {
-            color: #64748b;
-            font-size: 14px;
-            line-height: 1.5;
+        .info-card strong {
+            display: block;
+            margin-bottom: 6px;
+            color: #475569;
+        }
+
+        .error {
+            color: #b91c1c;
+            background: #fee2e2;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
         }
 
         footer {
@@ -101,51 +145,169 @@
 
 <body>
 
-    <header>
-        <h1>APOC-DIGITAL</h1>
-        <p>Sistema de Apoio às Operações Aeroportuárias</p>
-    </header>
+<header>
+    <h1>APOC-DIGITAL</h1>
+    <p>Sistema de Apoio às Operações Aeroportuárias</p>
+</header>
 
-    <main>
+<main>
 
-        <section class="welcome">
-            <h2>Painel de Operações</h2>
-            <p>Selecione uma opção para acessar as informações.</p>
-        </section>
+    <div class="back" onclick="voltar()">
+        ← Voltar
+    </div>
 
-        <section class="menu">
+    <section class="welcome">
+        <h2>🔎 Consulta Rápida</h2>
+        <p>Digite o modelo da aeronave para consultar suas características.</p>
+    </section>
 
-            <div class="card">
-                <div class="icon">✈️</div>
-                <h3>Aeronaves</h3>
-                <p>Consulte informações e características das aeronaves.</p>
+    <section class="search-box">
+
+        <input
+            type="text"
+            id="aeronave"
+            placeholder="Ex.: A320, A321, B737, B738..."
+        >
+
+        <button onclick="consultarAeronave()">
+            Consultar aeronave
+        </button>
+
+    </section>
+
+    <div id="erro" class="error">
+        Aeronave não encontrada no banco de dados do protótipo.
+    </div>
+
+    <section id="resultado" class="result">
+
+        <h2 id="nomeAeronave"></h2>
+
+        <div class="info">
+
+            <div class="info-card">
+                <strong>Fabricante</strong>
+                <span id="fabricante"></span>
             </div>
 
-            <div class="card">
-                <div class="icon">🅿️</div>
-                <h3>Posições</h3>
-                <p>Consulte posições, restrições e características operacionais.</p>
+            <div class="info-card">
+                <strong>Envergadura</strong>
+                <span id="envergadura"></span>
             </div>
 
-            <div class="card">
-                <div class="icon">📋</div>
-                <h3>Procedimentos</h3>
-                <p>Acesse procedimentos e orientações operacionais.</p>
+            <div class="info-card">
+                <strong>Comprimento</strong>
+                <span id="comprimento"></span>
             </div>
 
-            <div class="card">
-                <div class="icon">🔎</div>
-                <h3>Consulta Rápida</h3>
-                <p>Encontre rapidamente uma informação necessária para a operação.</p>
+            <div class="info-card">
+                <strong>Categoria</strong>
+                <span id="categoria"></span>
             </div>
 
-        </section>
+            <div class="info-card">
+                <strong>Posições compatíveis</strong>
+                <span id="posicoes"></span>
+            </div>
 
-    </main>
+        </div>
 
-    <footer>
-        APOC-DIGITAL • Protótipo
-    </footer>
+    </section>
+
+</main>
+
+<footer>
+    APOC-DIGITAL • Protótipo
+</footer>
+
+<script>
+
+const aeronaves = {
+
+    "A320": {
+        fabricante: "Airbus",
+        envergadura: "35,80 m",
+        comprimento: "37,57 m",
+        categoria: "Código C",
+        posicoes: "Exemplo: posições compatíveis a definir"
+    },
+
+    "A321": {
+        fabricante: "Airbus",
+        envergadura: "35,80 m",
+        comprimento: "44,51 m",
+        categoria: "Código C",
+        posicoes: "Exemplo: posições compatíveis a definir"
+    },
+
+    "B737": {
+        fabricante: "Boeing",
+        envergadura: "28,88 m",
+        comprimento: "35,56 m",
+        categoria: "Código C",
+        posicoes: "Exemplo: posições compatíveis a definir"
+    },
+
+    "B738": {
+        fabricante: "Boeing",
+        envergadura: "35,80 m",
+        comprimento: "39,47 m",
+        categoria: "Código C",
+        posicoes: "Exemplo: posições compatíveis a definir"
+    }
+
+};
+
+function consultarAeronave() {
+
+    const entrada = document
+        .getElementById("aeronave")
+        .value
+        .trim()
+        .toUpperCase();
+
+    const resultado = document.getElementById("resultado");
+    const erro = document.getElementById("erro");
+
+    if (aeronaves[entrada]) {
+
+        const aviao = aeronaves[entrada];
+
+        document.getElementById("nomeAeronave").textContent =
+            entrada;
+
+        document.getElementById("fabricante").textContent =
+            aviao.fabricante;
+
+        document.getElementById("envergadura").textContent =
+            aviao.envergadura;
+
+        document.getElementById("comprimento").textContent =
+            aviao.comprimento;
+
+        document.getElementById("categoria").textContent =
+            aviao.categoria;
+
+        document.getElementById("posicoes").textContent =
+            aviao.posicoes;
+
+        resultado.style.display = "block";
+        erro.style.display = "none";
+
+    } else {
+
+        resultado.style.display = "none";
+        erro.style.display = "block";
+
+    }
+
+}
+
+function voltar() {
+    window.location.href = "index.html";
+}
+
+</script>
 
 </body>
 </html>
