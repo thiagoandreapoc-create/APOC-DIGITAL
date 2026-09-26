@@ -3,10 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>APOC-DIGITAL</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #1f2937;
+        }
+
+        header {
+            background: #0b1f33;
+            color: white;
+            padding: 25px 40px;
+        }
+
+        header h1 {
+            font-size: 30px;
+        }
+
+        header p {
+            margin-top: 6px;
+            color: #b9c7d6;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .welcome {
+            margin-bottom: 30px;
+        }
+
+        .welcome h2 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .welcome p {
+            color: #64748b;
+        }
+
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: 0.2s;
+            border: 1px solid #e5e7eb;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #94a3b8;
+            font-size: 13px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>APOC-DIGITAL</h1>
-    <p>Sistema de apoio às operações aeroportuárias</p>
+
+    <header>
+        <h1>APOC-DIGITAL</h1>
+        <p>Sistema de Apoio às Operações Aeroportuárias</p>
+    </header>
+
+    <main>
+
+        <section class="welcome">
+            <h2>Painel de Operações</h2>
+            <p>Selecione uma opção para acessar as informações.</p>
+        </section>
+
+        <section class="menu">
+
+            <div class="card">
+                <div class="icon">✈️</div>
+                <h3>Aeronaves</h3>
+                <p>Consulte informações e características das aeronaves.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🅿️</div>
+                <h3>Posições</h3>
+                <p>Consulte posições, restrições e características operacionais.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📋</div>
+                <h3>Procedimentos</h3>
+                <p>Acesse procedimentos e orientações operacionais.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔎</div>
+                <h3>Consulta Rápida</h3>
+                <p>Encontre rapidamente uma informação necessária para a operação.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        APOC-DIGITAL • Protótipo
+    </footer>
+
 </body>
 </html>
