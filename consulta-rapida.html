@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Pesquisa rápida em conteúdos demonstrativos do APOC-DIGITAL."><title>APOC-DIGITAL | Consulta Rápida</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+  <header class="site-header"><h1>APOC-DIGITAL</h1><p>Sistema de Apoio às Operações Aeroportuárias</p></header>
+  <main>
+    <a class="back-link" href="index.html">← Voltar ao painel</a>
+    <section class="title-section"><h2>🔎 Consulta Rápida</h2><p>Pesquise nos registros fictícios disponíveis neste protótipo.</p></section>
+    <section class="search-panel"><label for="termo">O que você procura?</label><input id="termo" type="search" placeholder="Ex.: aeronave, posição ou registro" autocomplete="off"><p class="search-hint">A busca é local e contém somente conteúdo demonstrativo.</p></section>
+    <section class="quick-result" id="resultado" aria-live="polite" tabindex="-1"><h2 id="titulo-resultado">Resultado da consulta</h2><div id="conteudo-resultado"></div></section>
+    <p class="empty-state" id="mensagem-inicial">Digite um termo para consultar os exemplos disponíveis.</p>
+  </main>
+  <footer>APOC-DIGITAL • Protótipo demonstrativo • Não utilizar para decisões operacionais.</footer>
+  <script>
+    const base = [
+      { titulo: 'Aeronaves', texto: 'Consulta fictícia de modelos A320, A321, B737 e B737-800, com características de exemplo.', link: 'aeronaves.html' },
+      { titulo: 'Posições', texto: 'Consulta fictícia das posições 01 a 04, com compatibilidades e restrições demonstrativas.', link: 'posicoes.html' },
+      { titulo: 'Registro de ocorrência', texto: 'Procedimento genérico de demonstração para registro de um cenário fictício.', link: 'procedimentos.html' },
+      { titulo: 'Comunicação de alteração', texto: 'Procedimento genérico de demonstração para comunicar mudanças em conteúdo de testes.', link: 'procedimentos.html' }
+    ];
+    const campo = document.getElementById('termo'); const resultado = document.getElementById('resultado'); const conteudo = document.getElementById('conteudo-resultado'); const mensagem = document.getElementById('mensagem-inicial');
+    function pesquisar() {
+      const termo = campo.value.trim().toLocaleLowerCase('pt-BR');
+      if (!termo) { resultado.style.display = 'none'; mensagem.hidden = false; mensagem.textContent = 'Digite um termo para consultar os exemplos disponíveis.'; return; }
+      const itens = base.filter((item) => `${item.titulo} ${item.texto}`.toLocaleLowerCase('pt-BR').includes(termo));
+      mensagem.hidden = itens.length > 0;
+      mensagem.textContent = 'Nenhum conteúdo demonstrativo foi encontrado para esta busca.';
+      conteudo.replaceChildren();
+      itens.forEach((item) => { const artigo = document.createElement('article'); artigo.className = 'info'; const titulo = document.createElement('strong'); titulo.textContent = item.titulo; const texto = document.createElement('p'); texto.textContent = item.texto; const link = document.createElement('a'); link.href = item.link; link.textContent = 'Abrir módulo'; artigo.append(titulo, texto, link); conteudo.append(artigo); });
+      resultado.style.display = itens.length ? 'block' : 'none';
+    }
+    campo.addEventListener('input', pesquisar);
+  </script>
+</body>
+</html>
