@@ -1,35 +1,20 @@
-<!doctype html>
-<html lang="pt-BR">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Pesquisa rápida em conteúdos demonstrativos do APOC-DIGITAL."><title>APOC-DIGITAL | Consulta Rápida</title><link rel="stylesheet" href="styles.css"></head>
-<body>
-  <header class="site-header"><h1>APOC-DIGITAL</h1><p>Sistema de Apoio às Operações Aeroportuárias</p></header>
-  <main>
-    <a class="back-link" href="index.html">← Voltar ao painel</a>
-    <section class="title-section"><h2>🔎 Consulta Rápida</h2><p>Pesquise nos registros fictícios disponíveis neste protótipo.</p></section>
-    <section class="search-panel"><label for="termo">O que você procura?</label><input id="termo" type="search" placeholder="Ex.: aeronave, posição ou registro" autocomplete="off"><p class="search-hint">A busca é local e contém somente conteúdo demonstrativo.</p></section>
-    <section class="quick-result" id="resultado" aria-live="polite" tabindex="-1"><h2 id="titulo-resultado">Resultado da consulta</h2><div id="conteudo-resultado"></div></section>
-    <p class="empty-state" id="mensagem-inicial">Digite um termo para consultar os exemplos disponíveis.</p>
-  </main>
-  <footer>APOC-DIGITAL • Protótipo demonstrativo • Não utilizar para decisões operacionais.</footer>
-  <script>
-    const base = [
-      { titulo: 'Aeronaves', texto: 'Consulta fictícia de modelos A320, A321, B737 e B737-800, com características de exemplo.', link: 'aeronaves.html' },
-      { titulo: 'Posições', texto: 'Consulta fictícia das posições 01 a 04, com compatibilidades e restrições demonstrativas.', link: 'posicoes.html' },
-      { titulo: 'Registro de ocorrência', texto: 'Procedimento genérico de demonstração para registro de um cenário fictício.', link: 'procedimentos.html' },
-      { titulo: 'Comunicação de alteração', texto: 'Procedimento genérico de demonstração para comunicar mudanças em conteúdo de testes.', link: 'procedimentos.html' }
-    ];
-    const campo = document.getElementById('termo'); const resultado = document.getElementById('resultado'); const conteudo = document.getElementById('conteudo-resultado'); const mensagem = document.getElementById('mensagem-inicial');
-    function pesquisar() {
-      const termo = campo.value.trim().toLocaleLowerCase('pt-BR');
-      if (!termo) { resultado.style.display = 'none'; mensagem.hidden = false; mensagem.textContent = 'Digite um termo para consultar os exemplos disponíveis.'; return; }
-      const itens = base.filter((item) => `${item.titulo} ${item.texto}`.toLocaleLowerCase('pt-BR').includes(termo));
-      mensagem.hidden = itens.length > 0;
-      mensagem.textContent = 'Nenhum conteúdo demonstrativo foi encontrado para esta busca.';
-      conteudo.replaceChildren();
-      itens.forEach((item) => { const artigo = document.createElement('article'); artigo.className = 'info'; const titulo = document.createElement('strong'); titulo.textContent = item.titulo; const texto = document.createElement('p'); texto.textContent = item.texto; const link = document.createElement('a'); link.href = item.link; link.textContent = 'Abrir módulo'; artigo.append(titulo, texto, link); conteudo.append(artigo); });
-      resultado.style.display = itens.length ? 'block' : 'none';
-    }
-    campo.addEventListener('input', pesquisar);
-  </script>
-</body>
-</html>
+<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>APOC-DIGITAL | Consulta rápida</title><link rel="stylesheet" href="styles.css"></head><body>
+<header class="topbar"><a class="brand" href="index.html"><div class="brand-mark">A</div><div><strong>APOC-DIGITAL</strong><span>Airport Operations Control</span></div></a><div class="top-status"><span class="dot"></span> Ambiente demonstrativo</div></header>
+<div class="shell"><aside class="sidebar"><nav><a href="index.html">⌂ <span>Dashboard</span></a><a href="aeronaves.html">✈ <span>Aeronaves</span></a><a href="posicoes.html">▣ <span>Posições</span></a><a href="procedimentos.html">☑ <span>Procedimentos</span></a><a class="active" href="consulta-rapida.html">⌕ <span>Consulta rápida</span></a><a href="operacao.html">◉ <span>Operação</span></a><a href="referencias.html">▤ <span>Referências</span></a></nav><div class="side-note"><b>PROTÓTIPO</b><br>Busca local em conteúdo fictício.</div></aside>
+<main class="content"><div class="page-head"><div><span class="eyebrow">PESQUISA CENTRAL</span><h1>Consulta rápida</h1><p>Uma única busca para encontrar aeronaves, posições, procedimentos e conceitos.</p></div></div>
+<div class="global-search"><span>⌕</span><input id="q" type="search" autofocus placeholder="Digite: envergadura, alternado, posição, rádio..."></div>
+<div class="suggestions"><button>envergadura</button><button>voo alternado</button><button>posição</button><button>comunicação</button><button>procedimento</button></div>
+<section id="results" class="search-results"><div class="empty-state">Digite um termo para começar a consulta.</div></section>
+</main></div><footer>APOC-DIGITAL • Protótipo demonstrativo</footer>
+<script>
+const base=[
+['Aeronaves','Envergadura','Consulte dimensões e compatibilidades demonstrativas de aeronaves.','aeronaves.html'],
+['Posições','Limite de envergadura','Cruze o limite demonstrativo da posição com a aeronave consultada.','posicoes.html'],
+['Procedimentos','Voo alternado','Fluxo demonstrativo para registrar um cenário de voo alternado.','procedimentos.html'],
+['Procedimentos','Comunicação','Fluxo demonstrativo para organizar uma comunicação objetiva.','procedimentos.html'],
+['Operação','Monitoramento','Painel fictício de acompanhamento de movimentos.','operacao.html'],
+['Referências','Base de conhecimento','Materiais e categorias que podem alimentar a solução.','referencias.html']];
+const r=document.getElementById('results'),q=document.getElementById('q');
+function search(v){v=v.trim().toLowerCase();if(!v){r.innerHTML='<div class="empty-state">Digite um termo para começar a consulta.</div>';return}const a=base.filter(x=>(x[0]+' '+x[1]+' '+x[2]).toLowerCase().includes(v));r.innerHTML=a.length?a.map(x=>'<a class="result-row" href="'+x[3]+'"><span class="result-type">'+x[0]+'</span><div><b>'+x[1]+'</b><p>'+x[2]+'</p></div><span>→</span></a>').join(''):'<div class="empty-state">Nenhum resultado demonstrativo encontrado.</div>'}
+q.oninput=e=>search(e.target.value);document.querySelectorAll('.suggestions button').forEach(b=>b.onclick=()=>{q.value=b.textContent;search(q.value);q.focus()});
+</script></body></html>
