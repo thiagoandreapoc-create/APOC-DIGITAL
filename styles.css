@@ -1,0 +1,67 @@
+:root {
+  --navy: #0b1f33;
+  --blue: #2563eb;
+  --blue-soft: #eff6ff;
+  --text: #1f2937;
+  --muted: #64748b;
+  --surface: #ffffff;
+  --background: #f4f6f8;
+  --border: #e2e8f0;
+  --warning-background: #fff7ed;
+  --warning-border: #fed7aa;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { min-height: 100vh; margin: 0; background: var(--background); color: var(--text); font-family: Arial, sans-serif; line-height: 1.5; }
+.site-header { padding: 25px 40px; background: var(--navy); color: #fff; }
+.site-header h1 { margin: 0; font-size: clamp(1.55rem, 4vw, 1.9rem); letter-spacing: .5px; }
+.site-header p { margin: 6px 0 0; color: #b9c7d6; }
+main { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+footer { margin-top: 50px; padding: 25px; color: #94a3b8; font-size: .8125rem; text-align: center; }
+.back-link { display: inline-block; margin-bottom: 25px; color: var(--blue); font-weight: 700; text-decoration: none; }
+.back-link:hover { text-decoration: underline; }
+.title-section { margin-bottom: 25px; }
+.title-section h2 { margin: 0 0 8px; font-size: clamp(1.5rem, 4vw, 1.7rem); }
+.title-section p, .welcome p { margin: 0; color: var(--muted); }
+.welcome { margin-bottom: 30px; }
+.welcome h2 { margin: 0 0 8px; font-size: clamp(1.5rem, 4vw, 1.7rem); }
+.menu, .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
+.card, .result, .search-panel, .status, .procedure, .quick-result { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 4px 15px rgb(0 0 0 / 8%); }
+.card { padding: 24px; transition: transform .2s, box-shadow .2s; }
+a.card { color: inherit; text-decoration: none; }
+button.card { width: 100%; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.card:hover, .card:focus-visible { transform: translateY(-3px); box-shadow: 0 8px 22px rgb(0 0 0 / 12%); }
+.card:focus-visible, input:focus-visible, button:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+.card-icon { margin-bottom: 12px; font-size: 2.15rem; }
+.card h3 { margin: 0 0 8px; font-size: 1.18rem; }
+.card p { margin: 0; color: var(--muted); font-size: .9rem; }
+.status { margin-top: 30px; padding: 20px; }
+.status h3 { margin: 0 0 8px; }
+.status p { margin: 0; color: var(--muted); font-size: .9rem; }
+.status-indicator { display: inline-block; width: 9px; height: 9px; margin-right: 7px; border-radius: 50%; background: #22c55e; }
+.search-panel { margin-bottom: 25px; padding: 20px; }
+.search-panel label { display: block; margin-bottom: 8px; font-weight: 700; }
+.search-panel input { width: 100%; padding: 14px; border: 1px solid #cbd5e1; border-radius: 8px; color: var(--text); font: inherit; }
+.search-hint { margin: 8px 0 0; color: var(--muted); font-size: .85rem; }
+.empty-state { grid-column: 1 / -1; margin: 0; color: var(--muted); }
+.result, .quick-result { display: none; margin-top: 30px; padding: 25px; }
+.result h2, .quick-result h2 { margin: 0 0 20px; }
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 15px; }
+.info { padding: 18px; border: 1px solid var(--border); border-radius: 8px; background: #f8fafc; }
+.info strong { display: block; margin-bottom: 7px; color: #475569; }
+.compatibility { margin-top: 20px; padding: 18px; border: 1px solid #bfdbfe; border-radius: 8px; background: var(--blue-soft); }
+.compatibility p { margin: 8px 0 0; }
+.notice { margin-top: 20px; padding: 15px; border: 1px solid var(--warning-border); border-radius: 8px; background: var(--warning-background); color: #7c2d12; }
+.procedure-list { display: grid; gap: 16px; }
+.procedure { padding: 22px; }
+.procedure h3 { margin: 0 0 8px; }
+.procedure p { margin: 0 0 14px; color: var(--muted); }
+.procedure details { border-top: 1px solid var(--border); padding-top: 12px; }
+.procedure summary { cursor: pointer; color: var(--blue); font-weight: 700; }
+.procedure ol { margin: 12px 0 0; padding-left: 22px; }
+.tag { display: inline-block; margin-bottom: 10px; padding: 3px 8px; border-radius: 99px; background: var(--blue-soft); color: #1d4ed8; font-size: .75rem; font-weight: 700; }
+@media (max-width: 600px) {
+  .site-header { padding: 20px; }
+  main { margin-top: 25px; }
+  .card-grid, .menu { grid-template-columns: 1fr; }
+}
