@@ -1,33 +1,51 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Protótipo demonstrativo de apoio à operação aeroportuária.">
-  <title>APOC-DIGITAL | Início</title>
-  <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="APOC-DIGITAL — protótipo demonstrativo de apoio à operação aeroportuária.">
+<title>APOC-DIGITAL | Centro de Operações</title><link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <h1>APOC-DIGITAL</h1>
-    <p>Sistema de Apoio às Operações Aeroportuárias</p>
-  </header>
-  <main>
-    <section class="welcome" aria-labelledby="boas-vindas">
-      <h2 id="boas-vindas">Painel de Operações</h2>
-      <p>Escolha um módulo para consultar conteúdos demonstrativos do protótipo.</p>
-    </section>
-    <nav class="menu" aria-label="Módulos do APOC-DIGITAL">
-      <a class="card" href="aeronaves.html"><div class="card-icon" aria-hidden="true">✈️</div><h3>Aeronaves</h3><p>Consulte características e dimensões de aeronaves de exemplo.</p></a>
-      <a class="card" href="posicoes.html"><div class="card-icon" aria-hidden="true">🅿️</div><h3>Posições</h3><p>Veja posições, características e compatibilidades demonstrativas.</p></a>
-      <a class="card" href="procedimentos.html"><div class="card-icon" aria-hidden="true">📋</div><h3>Procedimentos</h3><p>Encontre orientações genéricas organizadas por assunto.</p></a>
-      <a class="card" href="consulta-rapida.html"><div class="card-icon" aria-hidden="true">🔎</div><h3>Consulta Rápida</h3><p>Pesquise termos dentro dos conteúdos fictícios do protótipo.</p></a>
-    </nav>
-    <section class="status" aria-label="Status do sistema">
-      <h3><span class="status-indicator" aria-hidden="true"></span>Sistema disponível</h3>
-      <p>APOC-DIGITAL • Versão de protótipo com dados exclusivamente demonstrativos.</p>
-    </section>
-  </main>
-  <footer>APOC-DIGITAL • Protótipo demonstrativo • Não utilizar para decisões operacionais.</footer>
-</body>
-</html>
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">A</div><div><strong>APOC-DIGITAL</strong><span>Airport Operations Control</span></div></div>
+  <div class="top-status"><span class="dot"></span> Ambiente demonstrativo</div>
+</header>
+<div class="shell">
+<aside class="sidebar">
+  <nav aria-label="Menu principal">
+    <a class="active" href="index.html">⌂ <span>Dashboard</span></a>
+    <a href="aeronaves.html">✈ <span>Aeronaves</span></a>
+    <a href="posicoes.html">▣ <span>Posições</span></a>
+    <a href="procedimentos.html">☑ <span>Procedimentos</span></a>
+    <a href="consulta-rapida.html">⌕ <span>Consulta rápida</span></a>
+    <a href="operacao.html">◉ <span>Operação</span></a>
+    <a href="referencias.html">▤ <span>Referências</span></a>
+  </nav>
+  <div class="side-note"><b>PROTÓTIPO</b><br>Dados fictícios para demonstração. Não utilizar para operação real.</div>
+</aside>
+<main class="content">
+  <div class="page-head"><div><span class="eyebrow">CENTRO DE OPERAÇÕES</span><h1>Dashboard</h1><p>Informação operacional organizada em um único ponto de consulta.</p></div><span class="demo-badge">DEMO • V2</span></div>
+  <section class="hero-panel">
+    <div><span class="eyebrow light">APOC-DIGITAL</span><h2>Decisão mais rápida começa com informação acessível.</h2><p>Uma interface demonstrativa inspirada na rotina e nos conteúdos de apoio apresentados no APOC ON BOARD.</p></div>
+    <div class="hero-icon">✈</div>
+  </section>
+  <section class="metric-grid">
+    <div class="metric"><span>VOOS EM MONITORAMENTO</span><strong>18</strong><small>dados simulados</small></div>
+    <div class="metric"><span>POSIÇÕES</span><strong>15</strong><small>cadastro demonstrativo</small></div>
+    <div class="metric"><span>AERONAVES</span><strong>24</strong><small>modelos de exemplo</small></div>
+    <div class="metric"><span>PROCEDIMENTOS</span><strong>12</strong><small>atalhos disponíveis</small></div>
+  </section>
+  <h2 class="section-title">Acesso rápido</h2>
+  <section class="module-grid">
+    <a class="module-card" href="aeronaves.html"><span class="module-icon">✈</span><div><h3>Aeronaves</h3><p>Características, dimensões e compatibilidade demonstrativa.</p></div><b>→</b></a>
+    <a class="module-card" href="posicoes.html"><span class="module-icon">▣</span><div><h3>Posições</h3><p>Tipo, limite de envergadura e restrições simuladas.</p></div><b>→</b></a>
+    <a class="module-card" href="procedimentos.html"><span class="module-icon">☑</span><div><h3>Procedimentos</h3><p>Fluxos rápidos organizados por assunto.</p></div><b>→</b></a>
+    <a class="module-card" href="consulta-rapida.html"><span class="module-icon">⌕</span><div><h3>Consulta rápida</h3><p>Encontre uma informação sem navegar por vários documentos.</p></div><b>→</b></a>
+    <a class="module-card" href="operacao.html"><span class="module-icon">◉</span><div><h3>Operação</h3><p>Painel de acompanhamento com dados fictícios.</p></div><b>→</b></a>
+    <a class="module-card" href="referencias.html"><span class="module-icon">▤</span><div><h3>Referências</h3><p>Organização das fontes e materiais de apoio.</p></div><b>→</b></a>
+  </section>
+  <section class="notice"><strong>⚠️ PROTÓTIPO — DADOS FICTÍCIOS — NÃO UTILIZAR PARA OPERAÇÃO REAL</strong><span>Esta versão foi criada para demonstrar a ideia do sistema. Informações reais, sistemas internos, contatos e procedimentos oficiais não estão publicados.</span></section>
+</main>
+</div>
+<footer>APOC-DIGITAL • Protótipo demonstrativo • Estrutura inspirada no APOC ON BOARD</footer>
+</body></html>
