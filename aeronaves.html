@@ -1,52 +1,21 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Consulta demonstrativa de aeronaves.">
-  <title>APOC-DIGITAL | Aeronaves</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header class="site-header"><h1>APOC-DIGITAL</h1><p>Sistema de Apoio às Operações Aeroportuárias</p></header>
-  <main>
-    <a class="back-link" href="index.html">← Voltar ao painel</a>
-    <section class="title-section"><h2>✈️ Consulta de Aeronaves</h2><p>Selecione um modelo ou filtre a lista. Todas as informações abaixo são exemplos fictícios.</p></section>
-    <section class="search-panel"><label for="pesquisa">Buscar aeronave</label><input id="pesquisa" type="search" placeholder="Ex.: Airbus ou B737" autocomplete="off"><p class="search-hint">A consulta não representa dados oficiais, limites ou autorizações operacionais.</p></section>
-    <section class="card-grid" id="lista" aria-live="polite">
-      <button class="card" type="button" data-nome="airbus a320 a320" data-codigo="A320"><div class="card-icon" aria-hidden="true">✈️</div><h3>Airbus A320</h3><p>Modelo demonstrativo de código C.</p></button>
-      <button class="card" type="button" data-nome="airbus a321 a321" data-codigo="A321"><div class="card-icon" aria-hidden="true">✈️</div><h3>Airbus A321</h3><p>Modelo demonstrativo de código C.</p></button>
-      <button class="card" type="button" data-nome="boeing 737 b737" data-codigo="B737"><div class="card-icon" aria-hidden="true">✈️</div><h3>Boeing 737</h3><p>Modelo demonstrativo de código C.</p></button>
-      <button class="card" type="button" data-nome="boeing 737-800 b738" data-codigo="B738"><div class="card-icon" aria-hidden="true">✈️</div><h3>Boeing 737-800</h3><p>Modelo demonstrativo de código C.</p></button>
-      <p class="empty-state" id="sem-resultados" hidden>Nenhuma aeronave demonstrativa encontrada.</p>
-    </section>
-    <section class="result" id="resultado" aria-live="polite" tabindex="-1">
-      <h2 id="nome"></h2>
-      <div class="info-grid"><div class="info"><strong>Fabricante</strong><span id="fabricante"></span></div><div class="info"><strong>Envergadura</strong><span id="envergadura"></span></div><div class="info"><strong>Comprimento</strong><span id="comprimento"></span></div><div class="info"><strong>Categoria</strong><span id="categoria"></span></div></div>
-      <div class="compatibility"><strong>🅿️ Compatibilidade com posições</strong><p id="posicoes"></p></div>
-      <div class="notice">⚠️ <strong>Protótipo:</strong> dimensões e compatibilidade são dados fictícios, sem validade operacional.</div>
-    </section>
-  </main>
-  <footer>APOC-DIGITAL • Protótipo demonstrativo • Não utilizar para decisões operacionais.</footer>
-  <script>
-    const aeronaves = {
-      A320: { nome: 'Airbus A320', fabricante: 'Airbus', envergadura: 'Exemplo: 35,80 m', comprimento: 'Exemplo: 37,57 m', categoria: 'Exemplo: Código C', posicoes: 'Exemplo: posições compatíveis a definir.' },
-      A321: { nome: 'Airbus A321', fabricante: 'Airbus', envergadura: 'Exemplo: 35,80 m', comprimento: 'Exemplo: 44,51 m', categoria: 'Exemplo: Código C', posicoes: 'Exemplo: posições compatíveis a definir.' },
-      B737: { nome: 'Boeing 737', fabricante: 'Boeing', envergadura: 'Exemplo: 28,88 m', comprimento: 'Exemplo: 35,56 m', categoria: 'Exemplo: Código C', posicoes: 'Exemplo: posições compatíveis a definir.' },
-      B738: { nome: 'Boeing 737-800', fabricante: 'Boeing', envergadura: 'Exemplo: 35,80 m', comprimento: 'Exemplo: 39,47 m', categoria: 'Exemplo: Código C', posicoes: 'Exemplo: posições compatíveis a definir.' }
-    };
-    const resultado = document.getElementById('resultado');
-    function abrir(codigo) {
-      const aviao = aeronaves[codigo];
-      for (const campo of ['nome', 'fabricante', 'envergadura', 'comprimento', 'categoria', 'posicoes']) document.getElementById(campo).textContent = aviao[campo];
-      resultado.style.display = 'block'; resultado.focus(); resultado.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-    document.querySelectorAll('[data-codigo]').forEach((card) => card.addEventListener('click', () => abrir(card.dataset.codigo)));
-    document.getElementById('pesquisa').addEventListener('input', (event) => {
-      const busca = event.target.value.trim().toLocaleLowerCase('pt-BR'); let visiveis = 0;
-      document.querySelectorAll('[data-codigo]').forEach((card) => { const exibir = card.dataset.nome.includes(busca); card.hidden = !exibir; if (exibir) visiveis += 1; });
-      document.getElementById('sem-resultados').hidden = visiveis !== 0;
-    });
-  </script>
-</body>
-</html>
+<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>APOC-DIGITAL | Aeronaves</title><link rel="stylesheet" href="styles.css"></head><body>
+<header class="topbar"><a class="brand" href="index.html"><div class="brand-mark">A</div><div><strong>APOC-DIGITAL</strong><span>Airport Operations Control</span></div></a><div class="top-status"><span class="dot"></span> Ambiente demonstrativo</div></header>
+<div class="shell"><aside class="sidebar"><nav><a href="index.html">⌂ <span>Dashboard</span></a><a class="active" href="aeronaves.html">✈ <span>Aeronaves</span></a><a href="posicoes.html">▣ <span>Posições</span></a><a href="procedimentos.html">☑ <span>Procedimentos</span></a><a href="consulta-rapida.html">⌕ <span>Consulta rápida</span></a><a href="operacao.html">◉ <span>Operação</span></a><a href="referencias.html">▤ <span>Referências</span></a></nav><div class="side-note"><b>PROTÓTIPO</b><br>Dados fictícios para demonstração.</div></aside>
+<main class="content"><div class="page-head"><div><span class="eyebrow">BASE TÉCNICA</span><h1>Consulta de aeronaves</h1><p>Informações estruturadas para uma consulta rápida.</p></div></div>
+<div class="searchbar"><label for="busca">Pesquisar aeronave</label><input id="busca" type="search" placeholder="Ex.: A320, B737, envergadura..."></div>
+<section class="aircraft-grid" id="lista"></section>
+<section class="detail-panel" id="detalhe" hidden></section>
+<div class="notice"><strong>Dados demonstrativos.</strong><span>Dimensões, categorias e compatibilidades abaixo são fictícias e não representam limites operacionais.</span></div>
+</main></div><footer>APOC-DIGITAL • Protótipo demonstrativo</footer>
+<script>
+const data=[
+{name:'Airbus A320',code:'A320',cat:'Código C',span:'35,80 m',length:'37,57 m',type:'Passageiros',compat:'P01 • P02 • P05'},
+{name:'Airbus A321',code:'A321',cat:'Código C',span:'35,80 m',length:'44,51 m',type:'Passageiros',compat:'P01 • P02 • P06'},
+{name:'Boeing 737-800',code:'B738',cat:'Código C',span:'35,80 m',length:'39,47 m',type:'Passageiros',compat:'P01 • P03 • P05'},
+{name:'Embraer E195-E2',code:'E195',cat:'Código C',span:'35,10 m',length:'41,50 m',type:'Passageiros',compat:'P02 • P04 • P07'},
+{name:'ATR 72',code:'AT72',cat:'Turboélice',span:'27,05 m',length:'27,17 m',type:'Passageiros',compat:'P04 • P08 • P09'},
+{name:'Cessna Citation XLS+',code:'C56X',cat:'Executiva',span:'17,17 m',length:'16,00 m',type:'Aviação geral',compat:'P10 • P11 • P12'}];
+const list=document.getElementById('lista'), detail=document.getElementById('detalhe');
+function render(q=''){list.innerHTML='';data.filter(x=>(x.name+' '+x.code+' '+x.cat+' '+x.type).toLowerCase().includes(q.toLowerCase())).forEach(x=>{const b=document.createElement('button');b.className='air-card';b.innerHTML='<span class="plane">✈</span><div><b>'+x.name+'</b><small>'+x.code+' • '+x.cat+'</small></div><span>→</span>';b.onclick=()=>{detail.hidden=false;detail.innerHTML='<div class="detail-head"><div><span class="eyebrow">FICHA DEMONSTRATIVA</span><h2>'+x.name+'</h2></div><button onclick="this.parentElement.parentElement.hidden=true">Fechar</button></div><div class="info-grid"><div class="info"><b>Envergadura</b><span>'+x.span+'</span></div><div class="info"><b>Comprimento</b><span>'+x.length+'</span></div><div class="info"><b>Categoria</b><span>'+x.cat+'</span></div><div class="info"><b>Tipo de operação</b><span>'+x.type+'</span></div></div><div class="compat"><b>Posições compatíveis — exemplo</b><span>'+x.compat+'</span></div>';detail.scrollIntoView({behavior:'smooth'});};list.appendChild(b)})}
+document.getElementById('busca').oninput=e=>render(e.target.value);render();
+</script></body></html>
