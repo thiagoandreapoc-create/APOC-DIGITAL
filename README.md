@@ -6,6 +6,7 @@ Sistema Integrado de Apoio à Operação Aeroportuária — Protótipo.
 Estrutura conceitual inspirada no material **APOC ON BOARD**, organizada em:
 - Dashboard
 - Consulta de aeronaves
+- Mapas e plantas demonstrativas
 - Consulta de posições
 - Procedimentos rápidos
 - Consulta rápida centralizada
