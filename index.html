@@ -1,102 +1,11 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="APOC-DIGITAL — protótipo demonstrativo de apoio à operação aeroportuária.">
-<title>APOC-DIGITAL | Centro de Operações</title><link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<header class="topbar">
-  <div class="brand"><div class="brand-mark">A</div><div><strong>APOC-DIGITAL</strong><span>Airport Operations Control</span></div></div>
-  <div class="top-status"><span class="dot"></span> Ambiente demonstrativo&nbsp; • &nbsp;Não oficial</div>
-</header>
-<div class="shell">
-<aside class="sidebar">
-  <nav aria-label="Menu principal">
-    <a class="active" href="index.html">⌂ <span>Dashboard</span></a>
-    <a href="aeronaves.html">✈ <span>Aeronaves</span></a>
-    <a href="posicoes.html">▣ <span>Posições</span></a>
-    <a href="procedimentos.html">☑ <span>Procedimentos</span></a>
-    <a href="consulta-rapida.html">⌕ <span>Consulta rápida</span></a>
-    <a href="operacao.html">◉ <span>Operação</span></a>
-    <a href="mapas.html">⌖ <span>Mapas</span></a>
-    <a href="400hz.html">⚡ <span>400Hz + PCA</span></a>
-    <a href="emergencias.html">🚨 <span>Emergências</span></a>
-    <a href="referencias.html">▤ <span>Referências</span></a>
-  </nav>
-  <div class="side-note"><b>PROTÓTIPO</b><br>Dados fictícios para demonstração. Não utilizar para operação real.</div>
-</aside>
-
-<main class="content">
-  <div class="page-head">
-    <div><span class="eyebrow">CENTRO DE OPERAÇÕES</span><h1>Dashboard operacional</h1><p>Uma visão rápida do cenário demonstrativo para apoiar a consulta e a tomada de decisão.</p></div>
-    <span class="demo-badge">DEMO • V2.1</span>
-  </div>
-
-  <section class="ops-hero">
-    <div class="ops-hero-copy">
-      <span class="eyebrow light">VISÃO GERAL • AGORA</span>
-      <h2>Informação operacional no lugar certo, na hora certa.</h2>
-      <p>O dashboard reúne indicadores, movimentos simulados, alertas e acessos rápidos em uma única tela.</p>
-      <div class="hero-actions">
-        <a href="operacao.html">Abrir operação →</a>
-        <a class="secondary" href="consulta-rapida.html">Consulta rápida</a>
-      </div>
-    </div>
-    <div class="ops-radar" aria-hidden="true"><div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-sweep"></div><span>APOC</span></div>
-  </section>
-
-  <section class="metric-grid ops-metrics">
-    <div class="metric metric-live"><span>VOOS EM MONITORAMENTO</span><strong>18</strong><small><i></i> cenário simulado</small></div>
-    <div class="metric"><span>POSIÇÕES ATIVAS</span><strong>15</strong><small>cadastro demonstrativo</small></div>
-    <div class="metric"><span>AERONAVES</span><strong>24</strong><small>modelos de exemplo</small></div>
-    <div class="metric"><span>PROCEDIMENTOS</span><strong>12</strong><small>atalhos disponíveis</small></div>
-  </section>
-
-  <section class="dashboard-grid">
-    <div class="dashboard-main">
-      <div class="section-heading"><div><span class="eyebrow">ACOMPANHAMENTO</span><h2>Movimentos em destaque</h2></div><a href="operacao.html">Ver operação completa →</a></div>
-      <div class="flight-board">
-        <div class="flight-board-head"><span>VOO</span><span>AERONAVE</span><span>POSIÇÃO</span><span>STATUS</span></div>
-        <div class="flight-board-row"><strong>AB 2147</strong><span>Airbus A320</span><b>5L</b><em class="status-chip blue">EM SOLO</em></div>
-        <div class="flight-board-row"><strong>AB 3082</strong><span>Boeing 737-800</span><b>2R</b><em class="status-chip amber">FINAL</em></div>
-        <div class="flight-board-row"><strong>AB 4510</strong><span>Airbus A321</span><b>7</b><em class="status-chip">PROGRAMADO</em></div>
-        <div class="flight-board-row"><strong>AB 5721</strong><span>Embraer E195-E2</span><b>10</b><em class="status-chip blue">PUSHBACK</em></div>
-      </div>
-
-      <div class="section-heading section-heading-space"><div><span class="eyebrow">OPERAÇÃO</span><h2>Visão das posições</h2></div><a href="posicoes.html">Consultar posições →</a></div>
-      <div class="ops-stand-map">
-        <div class="ops-stand occupied"><span>5L</span><small>AB 2147</small></div>
-        <div class="ops-stand alert"><span>2R</span><small>AB 3082</small></div>
-        <div class="ops-stand occupied"><span>7</span><small>AB 4510</small></div>
-        <div class="ops-stand free"><span>8</span><small>LIVRE</small></div>
-        <div class="ops-stand occupied"><span>10</span><small>AB 5721</small></div>
-        <div class="ops-stand free"><span>11</span><small>LIVRE</small></div>
-      </div>
-      <div class="map-legend"><span><i class="legend-dot occupied"></i> Ocupada</span><span><i class="legend-dot alert"></i> Atenção</span><span><i class="legend-dot free"></i> Livre</span></div>
-    </div>
-
-    <aside class="dashboard-side">
-      <div class="side-panel alert-panel">
-        <div class="panel-title"><span>⚠</span><div><b>Alertas</b><small>3 itens no cenário</small></div></div>
-        <div class="alert-item"><i class="alert-icon amber">!</i><div><strong>Posição 2R</strong><p>Movimento em aproximação.</p></div></div>
-        <div class="alert-item"><i class="alert-icon blue">i</i><div><strong>Posição 5L</strong><p>Aeronave em solo.</p></div></div>
-        <div class="alert-item"><i class="alert-icon">✓</i><div><strong>Posição 8</strong><p>Disponível no cenário.</p></div></div>
-      </div>
-
-      <div class="side-panel">
-        <div class="panel-title"><span>⚡</span><div><b>Acessos rápidos</b><small>Consulta em poucos cliques</small></div></div>
-        <a class="quick-action" href="aeronaves.html"><span>✈</span> Consultar aeronave <b>→</b></a>
-        <a class="quick-action" href="posicoes.html"><span>▣</span> Consultar posição <b>→</b></a>
-        <a class="quick-action" href="procedimentos.html"><span>☑</span> Abrir procedimento <b>→</b></a>
-        <a class="quick-action" href="consulta-rapida.html"><span>⌕</span> Pesquisar informação <b>→</b></a>
-        <a class="quick-action" href="400hz.html"><span>⚡</span> Consultar 400Hz + PCA <b>→</b></a>\n        <a class="quick-action" href="emergencias.html"><span>🚨</span> Consultar emergência <b>→</b></a>
-      </div>
-    </aside>
-  </section>
-
-  <section class="notice"><strong>⚠️ PROTÓTIPO — DADOS FICTÍCIOS — NÃO UTILIZAR PARA OPERAÇÃO REAL</strong><span>Esta tela demonstra como o APOC-DIGITAL poderia centralizar informações operacionais. Informações reais, sistemas internos, contatos e procedimentos oficiais não estão publicados.</span></section>
-</main>
-</div>
-<footer>APOC-DIGITAL • Protótipo conceitual • Não oficial • Estrutura inspirada no APOC ON BOARD • Dados fictícios</footer>
-</body></html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="APOC-DIGITAL — protótipo demonstrativo de apoio à operação aeroportuária."><title>APOC-DIGITAL | Centro de Operações</title><link rel="stylesheet" href="styles.css"></head>
+<body><header class="topbar"><div class="brand"><div class="brand-mark">A</div><div><strong>APOC-DIGITAL</strong><span>Airport Operations Control</span></div></div><div class="top-status"><span class="dot"></span> Ambiente demonstrativo&nbsp; • &nbsp;Não oficial</div></header>
+<div class="shell"><aside class="sidebar"><nav aria-label="Menu principal"><a class="active" href="index.html">⌂ <span>Dashboard</span></a><a href="aeronaves.html">✈ <span>Aeronaves</span></a><a href="posicoes.html">▣ <span>Posições</span></a><a href="procedimentos.html">☑ <span>Procedimentos</span></a><a href="consulta-rapida.html">⌕ <span>Consulta rápida</span></a><a href="operacao.html">◉ <span>Operação</span></a><a href="mapas.html">⌖ <span>Mapas</span></a><a href="400hz.html">⚡ <span>400Hz + PCA</span></a><a href="lvp.html">🌫️ <span>LVP</span></a><a href="emergencias.html">🚨 <span>Emergências</span></a><a href="referencias.html">▤ <span>Referências</span></a></nav><div class="side-note"><b>PROTÓTIPO</b><br>Dados fictícios para demonstração. Não utilizar para operação real.</div></aside>
+<main class="content"><div class="page-head"><div><span class="eyebrow">CENTRO DE OPERAÇÕES</span><h1>Dashboard operacional</h1><p>Uma visão rápida do cenário demonstrativo para apoiar a consulta e a tomada de decisão.</p></div><span class="demo-badge">DEMO • V2.2</span></div>
+<section class="ops-hero"><div class="ops-hero-copy"><span class="eyebrow light">VISÃO GERAL • AGORA</span><h2>Informação operacional no lugar certo, na hora certa.</h2><p>O dashboard reúne indicadores, movimentos simulados, alertas e acessos rápidos em uma única tela.</p><div class="hero-actions"><a href="operacao.html">Abrir operação →</a><a class="secondary" href="consulta-rapida.html">Consulta rápida</a></div></div><div class="ops-radar" aria-hidden="true"><div class="radar-ring r1"></div><div class="radar-ring r2"></div><div class="radar-sweep"></div><span>APOC</span></div></section>
+<section class="metric-grid ops-metrics"><div class="metric metric-live"><span>VOOS EM MONITORAMENTO</span><strong>18</strong><small><i></i> cenário simulado</small></div><div class="metric"><span>POSIÇÕES ATIVAS</span><strong>15</strong><small>cadastro demonstrativo</small></div><div class="metric"><span>AERONAVES</span><strong>24</strong><small>modelos de exemplo</small></div><div class="metric"><span>PROCEDIMENTOS</span><strong>13</strong><small>atalhos disponíveis</small></div></section>
+<section class="dashboard-grid"><div class="dashboard-main"><div class="section-heading"><div><span class="eyebrow">ACOMPANHAMENTO</span><h2>Movimentos em destaque</h2></div><a href="operacao.html">Ver operação completa →</a></div><div class="flight-board"><div class="flight-board-head"><span>VOO</span><span>AERONAVE</span><span>POSIÇÃO</span><span>STATUS</span></div><div class="flight-board-row"><strong>AB 2147</strong><span>Airbus A320</span><b>5L</b><em class="status-chip blue">EM SOLO</em></div><div class="flight-board-row"><strong>AB 3082</strong><span>Boeing 737-800</span><b>2R</b><em class="status-chip amber">FINAL</em></div><div class="flight-board-row"><strong>AB 4510</strong><span>Airbus A321</span><b>7</b><em class="status-chip">PROGRAMADO</em></div><div class="flight-board-row"><strong>AB 5721</strong><span>Embraer E195-E2</span><b>10</b><em class="status-chip blue">PUSHBACK</em></div></div><div class="section-heading section-heading-space"><div><span class="eyebrow">OPERAÇÃO</span><h2>Visão das posições</h2></div><a href="posicoes.html">Consultar posições →</a></div><div class="ops-stand-map"><div class="ops-stand occupied"><span>5L</span><small>AB 2147</small></div><div class="ops-stand alert"><span>2R</span><small>AB 3082</small></div><div class="ops-stand occupied"><span>7</span><small>AB 4510</small></div><div class="ops-stand free"><span>8</span><small>LIVRE</small></div><div class="ops-stand occupied"><span>10</span><small>AB 5721</small></div><div class="ops-stand free"><span>11</span><small>LIVRE</small></div></div><div class="map-legend"><span><i class="legend-dot occupied"></i> Ocupada</span><span><i class="legend-dot alert"></i> Atenção</span><span><i class="legend-dot free"></i> Livre</span></div></div>
+<aside class="dashboard-side"><div class="side-panel alert-panel"><div class="panel-title"><span>⚠</span><div><b>Alertas</b><small>3 itens no cenário</small></div></div><div class="alert-item"><i class="alert-icon amber">!</i><div><strong>Posição 2R</strong><p>Movimento em aproximação.</p></div></div><div class="alert-item"><i class="alert-icon blue">i</i><div><strong>Posição 5L</strong><p>Aeronave em solo.</p></div></div><div class="alert-item"><i class="alert-icon">✓</i><div><strong>Posição 8</strong><p>Disponível no cenário.</p></div></div></div><div class="side-panel"><div class="panel-title"><span>⚡</span><div><b>Acessos rápidos</b><small>Consulta em poucos cliques</small></div></div><a class="quick-action" href="aeronaves.html"><span>✈</span> Consultar aeronave <b>→</b></a><a class="quick-action" href="posicoes.html"><span>▣</span> Consultar posição <b>→</b></a><a class="quick-action" href="procedimentos.html"><span>☑</span> Abrir procedimento <b>→</b></a><a class="quick-action" href="consulta-rapida.html"><span>⌕</span> Pesquisar informação <b>→</b></a><a class="quick-action" href="400hz.html"><span>⚡</span> Consultar 400Hz + PCA <b>→</b></a><a class="quick-action" href="lvp.html"><span>🌫️</span> Fluxo LVP <b>→</b></a><a class="quick-action" href="emergencias.html"><span>🚨</span> Consultar emergência <b>→</b></a></div></aside></section>
+<section class="notice"><strong>⚠️ PROTÓTIPO — DADOS FICTÍCIOS — NÃO UTILIZAR PARA OPERAÇÃO REAL</strong><span>Esta tela demonstra como o APOC-DIGITAL poderia centralizar informações operacionais. Informações reais, sistemas internos, contatos e procedimentos oficiais não estão publicados.</span></section></main></div><footer>APOC-DIGITAL • Protótipo conceitual • Não oficial • Estrutura inspirada no APOC ON BOARD • Dados fictícios</footer></body></html>
